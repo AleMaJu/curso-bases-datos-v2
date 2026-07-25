@@ -1,0 +1,19 @@
+# Entorno virtual
+venv/
+env/
+
+# Bases de datos SQLite
+*.db
+*.sqlite
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de entorno
+.env
+
+# Archivos temporales
+*.log
+*.tmp
