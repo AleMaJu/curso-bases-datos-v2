@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import alumnos
+from app.routers import alumnos,libros,prestamos
 from app.exceptions import setup_exception_handlers
 
 app = FastAPI(
@@ -17,6 +17,8 @@ setup_exception_handlers(app)
 
 # Incluir los routers
 app.include_router(alumnos.router)
+app.include_router(libros.router)
+app.include_router(prestamos.router)
 
 @app.get("/", tags=["Inicio"])
 def hola_mundo():
