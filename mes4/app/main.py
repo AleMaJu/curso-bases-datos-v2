@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-from app.routers import alumnos,libros,prestamos
+from app.routers import alumnos,libros,prestamos,reportes
 from app.exceptions import setup_exception_handlers
 
 app = FastAPI(
-    title="Mi API con Estructura Profesional",
-    description="API para gestionar alumnos con FastAPI y PostgreSQL",
+    title="API de Gestión de Biblioteca",
+    description="API para gestionar alumnos, libros, préstamos y reportes",
     version="1.0.0",
     contact={
         "name": "AleMaJu",
@@ -19,11 +19,12 @@ setup_exception_handlers(app)
 app.include_router(alumnos.router)
 app.include_router(libros.router)
 app.include_router(prestamos.router)
+app.include_router(reportes.router)
 
 @app.get("/", tags=["Inicio"])
 def hola_mundo():
     """Endpoint de bienvenida."""
-    return {"mensaje": "Bienvenido a mi API!"}
+    return {"mensaje": "¡Bienvenido a la API de Biblioteca!"}
 
 @app.get("/health", tags=["Inicio"])
 def health_check():
